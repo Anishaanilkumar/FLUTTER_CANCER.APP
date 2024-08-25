@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
     Column(
       children:[
         Center(
-          child: LottieBuilder.asset("name"),
+          child: LottieBuilder.asset("project_app/assets/lottie/Animation - 1724562952593.json"),
         )
       ],
     ),nextScreen: const Home(),
