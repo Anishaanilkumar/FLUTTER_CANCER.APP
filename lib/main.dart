@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_app/ImageSplashScreen.dart';
 import 'package:project_app/AnimationSplashScreen.dart';
+import 'package:project_app/Loginpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  ImageSplashScreen(),
+      home: Loginpage(),
     );
   }
 }
