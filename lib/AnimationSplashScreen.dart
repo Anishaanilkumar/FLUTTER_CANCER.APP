@@ -7,7 +7,7 @@ class AnimationSplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 245, 240),
+      backgroundColor: Color.fromARGB(255, 0, 3, 0),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Centers the content vertically
@@ -24,15 +24,15 @@ class AnimationSplashScreen extends StatelessWidget {
               'Made With LOVE........❤',
               style: TextStyle(
                 fontSize: 15, // Adjust font size as needed
-                fontWeight: FontWeight.w600,
-                color: Color.fromARGB(255, 231, 3, 94), // Adjust text color as needed
-                shadows: [
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 237, 92, 150), // Adjust text color as needed
+                /*shadows: [
                   Shadow(
                     blurRadius: 10.0,
                     color: Color.fromARGB(255, 241, 238, 238),
                     offset: Offset(2.0, 2.0),
                   ),
-                ],
+                ],*/
               ),
             ),
           ],
