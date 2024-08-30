@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
       body: Stack(
         children: [
           Center(
-            child: ClipRRect(
+             child: ClipRRect(
               borderRadius:BorderRadius.all(Radius.circular(25)),
             child: BackdropFilter(
               filter:  ImageFilter.blur(sigmaX: 30, sigmaY: 30),
@@ -22,8 +22,8 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(25))),
               ),
             ),
-          ),
-          ),
+             ),
+          )
         ],
       ),
     );
