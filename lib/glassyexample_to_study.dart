@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
             child: BackdropFilter(
               filter:  ImageFilter.blur(sigmaX: 30, sigmaY: 30),
               child: Container(
-                width: 450,
+                width: 400,
                 height: 250,
                 decoration:  BoxDecoration(
                     color: Colors.grey.withOpacity(0.1),
