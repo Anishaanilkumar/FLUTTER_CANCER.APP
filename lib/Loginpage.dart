@@ -1,37 +1,127 @@
-// ignore: file_names
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import './custom_widgets.dart';
 
-class Loginpage extends StatefulWidget {
-  const Loginpage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<Loginpage> createState() => _LoginpageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginpageState extends State<Loginpage> {
+class _LoginScreenState extends State<LoginScreen> {
+  bool inLogin = false;
   @override
   Widget build(BuildContext context) {
-    return Container(decoration: BoxDecoration(
-      image: DecorationImage(
-        fit:BoxFit.cover,
-        image: AssetImage("assets/image/bg3.jpg"))),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage("assets/image/bg3.jpg"))),
         child: Center(
-          child:BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 5,sigmaY: 5),
-            child: const Column(
-              children:[
-                Text("cancer app",style: TextStyle(color: Colors.white,fontSize: 30),
-                )
-              ]
+          child: ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.12),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.2),
+                    width: 3,
+                  ),
+                ),
+                child: inLogin ? buildLoginForm() : buildIntro(),
+              ),
             ),
-          )
+          ),
         ),
-        
-      );
+      ),
+    );
+  }
+
+  Widget buildIntro() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          "Hello !",
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
+        const SizedBox(
+          height: 15,
+        ),
+        const Text(
+          "Lorem ipsum dolor sit amet, "
+          "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim",
+          style: TextStyle(color: Colors.white),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15.0),
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                inLogin = true;
+              });
+            },
+            child: const Row(
+              children: [
+                Expanded(
+                    child: CustomButton(
+                  text: "SIGN IN",
+                  primary: true,
+                )),
+              ],
+            ),
+          ),
+        ),
+        const Row(
+          children: [
+            Expanded(
+                child: CustomButton(
+              text: "SIGN UP",
+            )),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget buildLoginForm() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 15.0),
+          child: CustomInput(
+            hint: "Login",
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 15.0),
+          child: CustomInput(
+            hint: "Password",
+            password: true,
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 15.0),
+          child: CustomButton(
+            text: "SIGN IN",
+            primary: true,
+          ),
+        ),
+        Text(
+          "Forgot password ? ",
+          style: TextStyle(color: Colors.grey.shade300),
+        )
+      ],
+    );
   }
 }

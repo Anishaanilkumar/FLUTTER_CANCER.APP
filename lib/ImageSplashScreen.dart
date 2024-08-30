@@ -13,7 +13,7 @@ class ImageSplashScreen extends StatelessWidget {
           // Blue image as background
           Positioned.fill(
             child: Image.asset(
-              'assets/image/bg3.jpg', // Replace with your blue background image path
+              'assets/image/bg1.jpg', // Replace with your blue background image path
               fit: BoxFit.cover, // Ensure the background covers the entire screen
             ),
           ),
