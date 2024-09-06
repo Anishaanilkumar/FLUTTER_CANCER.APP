@@ -3,6 +3,7 @@ import 'package:project_app/ImageSplashScreen.dart';
 import 'package:project_app/AnimationSplashScreen.dart';
 import 'package:project_app/Loginpage.dart';
 import 'package:project_app/glassyexample_to_study.dart';
+import 'package:project_app/glassyloginclg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: Glass(),
     );
   }
 }
