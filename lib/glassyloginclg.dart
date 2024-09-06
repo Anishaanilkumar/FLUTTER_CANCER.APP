@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'dart:ui'; // Import for ImageFilter
 
 class Glass extends StatelessWidget {
   const Glass({super.key});
@@ -10,34 +10,27 @@ class Glass extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/bg1.jpg"),
+            image: AssetImage("assets/image/bg1.jpg"),
             fit: BoxFit.cover,
           ),
         ),
-                  
-                    
-                      
-                        child: Center(
-                          child: Container(
-                            height: 300,
-                            width: 300,
-                            decoration: BoxDecoration(
-                               color: Colors.white.withOpacity(0.2),
-                               borderRadius: BorderRadius.circular(15)
-                            ),
-                           
-                          
-                                          ),
-                        ),
-                      
-                    
-                
-              
-            
-          
-        
+        child: Center(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: 10.0,
+              sigmaY: 10.0,
+            ),
+            child: Container(
+              height: 400,
+              width: 400,
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(15),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
 }
-
