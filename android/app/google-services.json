@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989938559936",
+    "project_id": "healmate-806ac",
+    "storage_bucket": "healmate-806ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989938559936:android:75a65611d48c8fbe74b625",
+        "android_client_info": {
+          "package_name": "com.example.project_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOq0AdfJYJwsydEvhe_kV29dTTUTkkYxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
