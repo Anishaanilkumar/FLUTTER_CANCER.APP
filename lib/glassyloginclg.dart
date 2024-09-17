@@ -60,7 +60,6 @@ class Glass extends StatelessWidget {
 
                       const SizedBox(height: 20),
                     
-                      // Username input field
                       TextFormField(
                         controller: _usernameController,
                         style: const TextStyle(color: Colors.white),
@@ -74,7 +73,7 @@ class Glass extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      // Password input field
+                  
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
@@ -89,7 +88,7 @@ class Glass extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      // Login button
+                  
                       ElevatedButton(
                         onPressed: () {
                           final username = _usernameController.text;

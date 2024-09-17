@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project_app/HomeScreen.dart';
 import 'package:project_app/ImageSplashScreen.dart';
 import 'package:project_app/AnimationSplashScreen.dart';
+import 'package:project_app/glassregister.dart';
 import 'package:project_app/glassyexample_to_study.dart';
 import 'package:project_app/glassyloginclg.dart';
 import 'package:project_app/mainpage.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Mainpage(),
+      home: Register(),
     );
   }
 }
