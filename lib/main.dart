@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_app/ImageSplashScreen.dart';
 import 'package:project_app/AnimationSplashScreen.dart';
@@ -5,7 +7,19 @@ import 'package:project_app/Loginpage.dart';
 import 'package:project_app/glassyexample_to_study.dart';
 import 'package:project_app/glassyloginclg.dart';
 
-void main() {
+void main() async {
+WidgetsFlutterBinding.ensureInitialized();
+  if(kIsWeb){
+  await Firebase.initializeApp(options: FirebaseOptions(apiKey: "AIzaSyCjEtJP6fv5GqdQ-NgU6lONL3PEnnVf2Xc",
+  authDomain: "healmate-806ac.firebaseapp.com",
+  projectId: "healmate-806ac",
+  storageBucket: "healmate-806ac.appspot.com",
+  messagingSenderId: "989938559936",
+  appId: "1:989938559936:web:b594671ca4aaaade74b625",
+  measurementId: "G-G9EGN04LWN"));}
+  else{
+   await Firebase.initializeApp();
+  }
   runApp(const MyApp());
 }
 
