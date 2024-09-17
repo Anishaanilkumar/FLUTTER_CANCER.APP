@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:ui'; // Import for ImageFilter
+import 'package:project_app/HomeScreen.dart';
+import 'dart:ui';
+
+import 'package:project_app/glassyexample_to_study.dart'; // Import for ImageFilter
 
 class Glass extends StatelessWidget {
    Glass({super.key});
@@ -11,14 +14,14 @@ class Glass extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/bg1.jpg"),
+            image: AssetImage("assets/image/glassybg.jpg"),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
           child: Container(
             decoration: BoxDecoration( boxShadow: [BoxShadow(
-                blurRadius: 14,
+                blurRadius: 20,
                 spreadRadius: 14,
                 color: Colors.black.withOpacity(0.2))
             ]),
@@ -26,33 +29,37 @@ class Glass extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
               child: BackdropFilter(
                 filter: ImageFilter.blur(
-                  sigmaX: 10.0,
-                  sigmaY: 10.0,
+                  sigmaX: 8.0,
+                  sigmaY: 8.0,
                 ),
                 child: Container(
                   height: 400,
                   width: 400,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Color.fromARGB(255, 17, 16, 16).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
                       width:1.5,
-                      color: Colors.white.withOpacity(0.3)
+                      color: const Color.fromARGB(255, 15, 15, 15).withOpacity(0.3)
             
                     )
                   ),
+                  
                    child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Login',
+                        'HEALMATE',
+                        
                         style: TextStyle(
                           fontSize: 24,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 247, 246, 246),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       const SizedBox(height: 20),
+                    
                       // Username input field
                       TextFormField(
                         controller: _usernameController,
@@ -60,15 +67,13 @@ class Glass extends StatelessWidget {
                         decoration: InputDecoration(
                           labelText: 'Username',
                           labelStyle: TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white.withOpacity(0.8)),
-                          ),
+                        
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 30),
                       // Password input field
                       TextFormField(
                         controller: _passwordController,
@@ -77,9 +82,7 @@ class Glass extends StatelessWidget {
                         decoration: InputDecoration(
                           labelText: 'Password',
                           labelStyle: TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white.withOpacity(0.8)),
-                          ),
+                        
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white),
                           ),
@@ -94,16 +97,14 @@ class Glass extends StatelessWidget {
                           // Add your login logic here (e.g., authentication)
                           print('Username: $username');
                           print('Password: $password');
+                         Navigator.push(context, MaterialPageRoute(builder:(context)=> Homescreen()));
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white.withOpacity(0.5),
-                          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                        ),
                         child: const Text(
                           'Login',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Color.fromARGB(255, 11, 11, 11), fontWeight: FontWeight.bold),
                         ),
                       ),
+                      
                     ],
                 ),
               ),

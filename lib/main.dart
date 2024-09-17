@@ -1,11 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:project_app/HomeScreen.dart';
 import 'package:project_app/ImageSplashScreen.dart';
 import 'package:project_app/AnimationSplashScreen.dart';
-import 'package:project_app/Loginpage.dart';
 import 'package:project_app/glassyexample_to_study.dart';
 import 'package:project_app/glassyloginclg.dart';
+import 'package:project_app/mainpage.dart';
 
 void main() async {
 WidgetsFlutterBinding.ensureInitialized();
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Glass(),
+      home: Mainpage(),
     );
   }
 }
