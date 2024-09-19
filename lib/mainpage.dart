@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_app/glassregister.dart';
+import 'package:project_app/glassyloginclg.dart';
 
 class Mainpage extends StatelessWidget {
   const Mainpage({super.key});
@@ -29,7 +31,7 @@ class Mainpage extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    
+                      Navigator.push(context, MaterialPageRoute(builder:(context)=> Glass()));
                   },
                   child: Text('SIGN IN'),
 
@@ -43,7 +45,7 @@ class Mainpage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    
+                      Navigator.push(context, MaterialPageRoute(builder:(context)=>Register()));
                   },
                   child: Text('SIGN UP'),
                     style: ElevatedButton.styleFrom(
