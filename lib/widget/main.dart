@@ -1,13 +1,12 @@
-import 'package:firebase_core/firebase_core.dart';
+/*import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:project_app/widget/HomeScreen.dart';
+import 'package:project_app/HomeScreen.dart';
+import 'package:project_app/ImageSplashScreen.dart';
+import 'package:project_app/AnimationSplashScreen.dart';
+import 'package:project_app/glassregister.dart';
 
-import 'package:project_app/widget/AnimationSplashScreen.dart';
-
-import 'package:project_app/auth/glassyloginclg.dart';
-import 'package:project_app/auth/glassregister.dart';
-import 'package:project_app/widget/ImageSplashScreen.dart';
+import 'package:project_app/glassyloginclg.dart';
 
 
 void main() async {
@@ -53,8 +52,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:ImageSplashScreen(),
+      home: Glass(),
     );
   }
 }
-
+*/

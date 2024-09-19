@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:project_app/AnimationSplashScreen.dart';
+import 'package:project_app/widget/AnimationSplashScreen.dart';
 
 class ImageSplashScreen extends StatelessWidget {
   const ImageSplashScreen({super.key});
@@ -10,11 +10,10 @@ class ImageSplashScreen extends StatelessWidget {
     return AnimatedSplashScreen(
       splash: Stack(
         children: [
-          // Blue image as background
           Positioned.fill(
             child: Image.asset(
-              'assets/image/bg1.jpg', // Replace with your blue background image path
-              fit: BoxFit.cover, // Ensure the background covers the entire screen
+              'assets/image/bg4.jpg', 
+              fit: BoxFit.cover, 
             ),
           ),
           // Cancer logo image
@@ -27,10 +26,10 @@ class ImageSplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: const AnimationSplashScreen(), // Navigates to the animation screen
-      splashIconSize: double.infinity, // Ensure it covers the full screen
-      backgroundColor: Colors.transparent, // Set background color to transparent to show the image
-      duration: 3000, // Adjust duration as needed
+      nextScreen: const AnimationSplashScreen(), 
+      splashIconSize: double.infinity, 
+      backgroundColor: Colors.transparent,
+      duration: 3000, 
     );
   }
 }

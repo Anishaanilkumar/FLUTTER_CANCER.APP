@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_app/glassregister.dart';
-import 'package:project_app/glassyloginclg.dart';
+import 'package:project_app/auth/glassregister.dart';
+import 'package:project_app/auth/glassyloginclg.dart';
 
 class Mainpage extends StatelessWidget {
   const Mainpage({super.key});

@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:project_app/mainpage.dart';
+import 'package:project_app/widget/mainpage.dart';
+
 
 class AnimationSplashScreen extends StatefulWidget {
   const AnimationSplashScreen({super.key});
