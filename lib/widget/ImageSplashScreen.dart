@@ -11,12 +11,12 @@ class ImageSplashScreen extends StatelessWidget {
       splash: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(
-              'assets/image/bg4.jpg', 
-              fit: BoxFit.cover, 
+            child: FadeInImage(
+              placeholder: AssetImage('assets/image/placeholder.jpg'),
+              image: AssetImage('assets/image/bg4.jpg'),
+              fit: BoxFit.cover,
             ),
           ),
-          // Cancer logo image
           Center(
             child: Image.asset(
               'assets/image/cancerapplogo.png',
@@ -26,10 +26,10 @@ class ImageSplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: const AnimationSplashScreen(), 
-      splashIconSize: double.infinity, 
+      nextScreen: const AnimationSplashScreen(),
+      splashIconSize: double.infinity,
       backgroundColor: Colors.transparent,
-      duration: 3000, 
+      duration: 3000,
     );
   }
 }
