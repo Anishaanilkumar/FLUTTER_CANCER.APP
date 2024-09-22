@@ -64,7 +64,7 @@ class _RegisterState extends State<Register> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/glassybg.jpg"),
+            image: AssetImage("assets/image/glassbg.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -104,58 +104,62 @@ class _RegisterState extends State<Register> {
                         'Register',
                         style: TextStyle(
                           fontSize: 24,
-                          color: Colors.white,
+                          color: const Color.fromARGB(255, 10, 1, 1),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _usernameController,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Color.fromARGB(255, 21, 20, 20)),
                         decoration: InputDecoration(
                           labelText: 'Username',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 10, 10, 10),fontWeight: FontWeight.bold),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: const Color.fromARGB(255, 15, 15, 15)),
                           ),
+                          prefixIcon: Icon(Icons.person, color: Colors.black),
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _emailController,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Color.fromARGB(255, 14, 13, 13)),
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 9, 9, 9),fontWeight: FontWeight.bold),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: const Color.fromARGB(255, 7, 7, 7)),
                           ),
+                              prefixIcon: Icon(Icons.email, color: Colors.black),  
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Color.fromARGB(255, 14, 13, 13)),
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 8, 7, 7,),fontWeight: FontWeight.bold),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: const Color.fromARGB(255, 9, 9, 9)),
                           ),
+                           prefixIcon: Icon(Icons.lock, color: Colors.black),
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _confirmPasswordController,
                         obscureText: true,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Color.fromARGB(255, 10, 10, 10)),
                         decoration: InputDecoration(
                           labelText: 'Confirm Password',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 9, 9, 9),fontWeight: FontWeight.bold),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: const Color.fromARGB(255, 12, 11, 11)),
                           ),
+                          prefixIcon: Icon(Icons.lock_outline, color: Colors.black),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -173,12 +177,12 @@ class _RegisterState extends State<Register> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Already have an account? "),
+                          const Text("Already have an account? ",style: TextStyle(fontWeight: FontWeight.bold),),
                           GestureDetector(
                             onTap: () => goToLogin(context),
                             child: const Text(
                               "Login",
-                              style: TextStyle(color: Colors.red),
+                              style: TextStyle(color: Colors.red,fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],

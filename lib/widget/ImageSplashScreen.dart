@@ -12,7 +12,7 @@ class ImageSplashScreen extends StatelessWidget {
         children: [
           Positioned.fill(
             child: FadeInImage(
-              placeholder: AssetImage('assets/image/placeholder.jpg'),
+              placeholder: AssetImage('assets/image/bg4.jpg'),
               image: AssetImage('assets/image/bg4.jpg'),
               fit: BoxFit.cover,
             ),

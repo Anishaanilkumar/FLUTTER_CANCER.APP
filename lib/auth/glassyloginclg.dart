@@ -16,7 +16,8 @@ class _GlassState extends State<Glass> {
   final AuthService _auth = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
+  
+  
   @override
   void dispose() {
     _emailController.dispose();
@@ -30,7 +31,7 @@ class _GlassState extends State<Glass> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/glassybg.jpg"),
+            image: AssetImage("assets/image/glassbg.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -70,33 +71,35 @@ class _GlassState extends State<Glass> {
                         'HEALMATE',
                         style: TextStyle(
                           fontSize: 24,
-                          color: Color.fromARGB(255, 247, 246, 246),
+                          color: Color.fromARGB(255, 1, 13, 26),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _emailController,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Color.fromARGB(255, 12, 12, 12)),
                         decoration: const InputDecoration(
                           labelText: 'Email',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(color: Color.fromARGB(255, 6, 6, 6),fontWeight: FontWeight.bold),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Color.fromARGB(255, 6, 6, 6)),
                           ),
+                              prefixIcon: Icon(Icons.email, color: Colors.black),  
                         ),
                       ),
                       const SizedBox(height: 30),
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Color.fromARGB(255, 9, 9, 9)),
                         decoration: const InputDecoration(
                           labelText: 'Password',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(color: Color.fromARGB(255, 12, 11, 11),fontWeight: FontWeight.bold),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
+                            borderSide: BorderSide(color: Color.fromARGB(255, 9, 9, 9)),
                           ),
+                           prefixIcon: Icon(Icons.lock, color: Colors.black),
                         ),
                       ),
                       const SizedBox(height: 30),
@@ -104,7 +107,7 @@ class _GlassState extends State<Glass> {
                         child: const Text(
                           'Login',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 11, 11, 11),
+                            color: Color.fromARGB(255, 10, 10, 10),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -114,7 +117,7 @@ class _GlassState extends State<Glass> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Already have an account? "),
+                           Text("Already have an account? ",style: TextStyle(color: const Color.fromARGB(255, 11, 11, 11)),),
                           GestureDetector(
                             onTap: () => goToSignup(context),
                             child: const Text(

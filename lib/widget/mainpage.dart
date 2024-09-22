@@ -10,15 +10,15 @@ class Mainpage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/image/bg1.jpg'),
+          image: AssetImage('assets/image/bgmain.jpg'),
           fit: BoxFit.cover,
         ),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent, 
         appBar: AppBar(
-          title: Text("      HEALMATE",style: TextStyle(color: Color.fromARGB(255, 245, 243, 244)),),
-          backgroundColor: Color.fromARGB(255, 225, 118, 154),
+          title: Text("      HEALMATE",style: TextStyle(color: Color.fromARGB(255, 250, 248, 249)),),
+          backgroundColor: Color.fromARGB(255, 8, 7, 7),
           leading: 
           Image.asset('assets/image/cancerapplogo.png'),
         ),
