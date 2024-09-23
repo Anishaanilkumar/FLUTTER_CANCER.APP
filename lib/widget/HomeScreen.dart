@@ -1,13 +1,18 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:project_app/auth/auth_service.dart';
-import 'package:project_app/auth/glassyloginclg.dart'; 
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final auth = AuthService();
+    final List<String> imgList = [
+      'assets/image/news1.png',
+      'assets/image/news2.png',
+      'assets/image/news3.png',
+      'assets/image/news4.jpg',
+      'assets/image/news5.png',
+    ];
 
     return Stack(
       children: [
@@ -18,9 +23,9 @@ class Homescreen extends StatelessWidget {
           ),
         ),
         Scaffold(
-          backgroundColor: Colors.transparent,//to show the bg
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 54, 52, 52).withOpacity(0.7), // Transparent appBar
+            backgroundColor: Color.fromARGB(255, 54, 52, 52).withOpacity(0.7),
             title: Text(
               "HEALMATE",
               style: TextStyle(
@@ -29,12 +34,8 @@ class Homescreen extends StatelessWidget {
             ),
             leading: IconButton(
               icon: Icon(Icons.logout, color: Color.fromARGB(230, 236, 239, 238)),
-              onPressed: () async {
-                await auth.signout();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Glass()),
-                );
+              onPressed: () {
+                // Logout functionality
               },
             ),
             actions: [
@@ -96,24 +97,66 @@ class Homescreen extends StatelessWidget {
             ),
           ),
           body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 560),
-              Center(
-                child: Text(
-                  'WELCOME TO HEALMATE !',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
-                    
-                    color: const Color.fromARGB(255, 12, 12, 12),
-                  ),
+              Text(
+                'WELCOME TO HEALMATE!',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                  color: const Color.fromARGB(255, 12, 12, 12),
                 ),
+              ),
+              SizedBox(height: 20),
+              CarouselSlider(
+                options: CarouselOptions(height: 520.0, autoPlay: true),
+                items: imgList.map((item) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => FullImageScreen(imagePath: item),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      decoration: BoxDecoration(color: Colors.black),
+                      child: Image.asset(
+                        item,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                }).toList(),
               ),
             ],
           ),
         ),
       ],
+    );
+  }
+}
+
+class FullImageScreen extends StatelessWidget {
+  final String imagePath;
+
+  const FullImageScreen({Key? key, required this.imagePath}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Image Preview'),
+        backgroundColor: Color.fromARGB(255, 54, 52, 52).withOpacity(0.7),
+      ),
+      body: Center(
+        child: Image.asset(
+          imagePath,
+          fit: BoxFit.contain, // Use BoxFit.contain to fit the image within the screen
+        ),
+      ),
     );
   }
 }
