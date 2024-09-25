@@ -1,20 +1,8 @@
-/*import 'package:dialog_flowtter/dialog_flowtter.dart';
+import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
-import 'package:nurse_bot/messages.dart';
+import 'package:project_app/widget/messages.dart';
 
-/*class Home extends StatefulWidget {
-  const Home({super.key});
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}*/
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -46,53 +34,51 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('NURSE _ ALLY'),
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(
+        'BOT_SAM',
+        style: TextStyle(color: Color.fromRGBO(8, 8, 8, 0.965),fontWeight: FontWeight.bold),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-  image: DecorationImage(
-    image: AssetImage('assets/image/background.jpg'), // Update to your specific image path
-    fit: BoxFit.cover, // Adjust the fit as needed
-  ),
-),
-
-        child: Column(
-          children: [
-            Expanded(child: MessagesScreen(messages: messages)),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-              color: Color.fromARGB(255, 13, 13, 13),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: _controller,
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        hintText: 'Type your message',
-                        hintStyle: TextStyle(color: Color.fromARGB(234, 198, 196, 196)),
-                      ),
+      leading: Icon(Icons.person_4,color: Color.fromRGBO(8, 8, 8, 0.965) ,),
+      backgroundColor: Color.fromRGBO(2, 105, 77, 0.965),
+    ),
+    body: Container(
+      color: Color.fromARGB(255, 252, 252, 252), 
+      child: Column(
+        children: [
+          Expanded(child: MessagesScreen(messages: messages)),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+            color: Color.fromARGB(255, 13, 13, 13),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _controller,
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      hintText: 'Type your message',
+                      hintStyle: TextStyle(color: Color.fromARGB(234, 198, 196, 196)),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      sendMessage(_controller.text);
-                      _controller.clear();
-                    },
-                    icon: Icon(Icons.send),
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    sendMessage(_controller.text);
+                    _controller.clear();
+                  },
+                  icon: Icon(Icons.send),
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-    );
-  }
-
+    ),
+  );
+}
   void sendMessage(String text) async {
     if (text.isEmpty) {
       print('Message is empty');
@@ -129,4 +115,4 @@ class _HomeState extends State<Home> {
     messages.add({'message': message, 'isUserMessage': isUserMessage});
     setState(() {});
   }
-} */
+}

@@ -100,11 +100,11 @@ class _RegisterState extends State<Register> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
-                        'Register',
+                      const Text(
+                        'HEALMATE',
                         style: TextStyle(
                           fontSize: 24,
-                          color: const Color.fromARGB(255, 10, 1, 1),
+                          color: Color.fromARGB(255, 1, 13, 26),
                           fontWeight: FontWeight.bold,
                         ),
                       ),

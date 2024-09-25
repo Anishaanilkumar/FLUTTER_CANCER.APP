@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nurse-ally-cqbw",
+  "private_key_id": "d8a36ef74b8eeeb35806c5b2a3418226a38c7581",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1OWrTC/qhVwk9\nTzIsWIvvBzQOiOgjXVIz0dbZDJ0YhUNSXqyiCcEXfzsb3xUYrPZhweIweFInZDQu\n+W6BSjq/m5n5yT15PHA0hG7xTIbvaGkOjscFkuw/KUillLrbweD9OT+xjSiEYJHO\n7tLF+NMw4aUQ7SOiAW9XfeBg80wtvOPWcq0YrxDINqtr/EpivrMiL7J+7kHLv6W3\nz857QRaiUavtnpF9F6M7quuab1q5DbgHZynDVOLofF803O7jCoV9u4jABqytKpKb\npkV7oH0Bqfe7inerXTlok4nw918cmEJa6F3ZKghiTEvIVzFoYjHDZgy1GJLJvXnY\n1uG49ONFAgMBAAECggEAD4X0UFErnhPcQv/sao+IJwitLRyNk+/ruWwdVPjHYSET\nJ/RbocKno1le6Q+GGVfBgBSxSRkZYm3rKWXs0Q7Ycu7DdPnHtgGXE+yPK0S0nz/I\nlfplcmUILw3cfvB7RBU6rj4v5kfS42n5O2pKLDKY9owxjT5e6cLpNGugI3XbveQV\n2vRIoRiZudIABhP/MKtZHECswmQXtD/ladArr/uu4vpTxE+/kWJzIaWX8ujfLth9\nq9cS+zGakI93ekt4oVR0HTSRSbSAz33O7XFH86mCEtTW3IaOUuqZVHdJ95beVbaG\nDb2YqrLlLSQ2pakDmy32bzjzIMCe7MEgb0oTl03oCQKBgQDwEmmMUSZ/awD6vEW0\nB3Me3ZgAfrhdVRcaXnQQ4fwaqCar3k4gKqbm5Ax4KHccQURoREgDn/Lj9+FV+hqs\nfMZ5XhW3YwUGVrQlx1G5mfRhl9yN1og7DG0PagNrjnenz+XWZTJG+LBp5ytI/gYT\ng9+SPmCpiidK1mmfbLOpRWlliQKBgQDBP3x2wbVtAuJQPs0Lrw209dAdwY9HsKAx\nEdmgM3Tw6Uv4kDVfLXqYsxwXpcg4dhdWG86W1/D4Wq/CtHwx4LFb0VzyFPnIW3ky\n+5ttusZ9GcwPQTWAK6i0k61XZ5Rjg1XBzjZ8pdPiFbEOMlb8wPLeNuAXbKq556x+\n2Gt1xONc3QKBgQCv0QwzkwrargbdmhyCKCKLLEYxtpxW3gY5bYsbAiWbcCJCJGCa\n9iGdXs4zAY+ZxcLPiZIj9XPwuIzyZmQ6hnbkU58b2wzHA6CTOlID11g+UPVZew/y\nDrugWkd+8at33q24Qgx8JY0tQftVTZQtnpqRg9VO1LrJ+BUKiJVbFlaF4QKBgE++\nhvnqjZdibUl34N1Fa36VQUBGM3394Nze5NM66LLRUsxLlfqkpcaFgr4vZyQFdzPN\nXb7ZdVLG+Wh7WhSrCAU/q/8psLmBJc5oDYeGX4oYLyDMY+t0GLYLiqha0d0OwUCs\ne8eMFpdhJCMbmtHKPW59bpO7/+efNotRe2apzLjxAoGAZyGbhWJCgYaCH8EETRK1\n4O0iM5kcvfoyz6qyF8wZyLp7CZHKnGdzGUftWwVv+JjRD3DykENH5VIrES0r9EYQ\nMZa3G2W2tSJVPgDBsNAqyL0P8afX4czvaj41FA1ZzdkoWOtZhJngTsNOYKEmXY56\nua604ta1zDq+b3QHlO4uq+E=\n-----END PRIVATE KEY-----\n",
+  "client_email": "ambot-337@nurse-ally-cqbw.iam.gserviceaccount.com",
+  "client_id": "117903878637425525326",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ambot-337%40nurse-ally-cqbw.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

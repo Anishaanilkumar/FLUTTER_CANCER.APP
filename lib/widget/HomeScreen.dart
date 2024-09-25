@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:project_app/auth/glassyloginclg.dart';
+import 'package:project_app/widget/chatbot.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -35,7 +37,7 @@ class Homescreen extends StatelessWidget {
             leading: IconButton(
               icon: Icon(Icons.logout, color: Color.fromARGB(230, 236, 239, 238)),
               onPressed: () {
-                // Logout functionality
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> Glass()));
               },
             ),
             actions: [
@@ -69,7 +71,7 @@ class Homescreen extends StatelessWidget {
                   leading: Icon(Icons.chat),
                   title: Text('Chatbot'),
                   onTap: () {
-                    Navigator.of(context).pop();
+                     Navigator.push(context, MaterialPageRoute(builder:(context)=> Home()));
                   },
                 ),
                 ListTile(
@@ -82,6 +84,20 @@ class Homescreen extends StatelessWidget {
                 ListTile(
                   leading: Icon(Icons.person),
                   title: Text('Personality Test'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                 ListTile(
+                  leading: Icon(Icons.format_quote),
+                  title: Text('Affirmations'),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                 ListTile(
+                  leading: Icon(Icons.article),
+                  title: Text('Survival Stories'),
                   onTap: () {
                     Navigator.of(context).pop();
                   },
