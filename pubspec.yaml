@@ -74,6 +74,9 @@ flutter:
       - assets/image/bg3.jpg
       - assets/image/bg2.jpg
       - assets/image/glassbg.jpg
+      - assets/image/glassbg1.jpg
+      - assets/image/glassbg2.jpg
+      - assets/image/glassbg3.jpg
       - assets/image/bg4.jpg
       - assets/image/placeholder.jpg
       - assets/image/bgmain.jpg
