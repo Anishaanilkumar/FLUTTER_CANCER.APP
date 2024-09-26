@@ -63,7 +63,7 @@ class _RegisterState extends State<Register> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/glassbg1.jpg"),
+            image: AssetImage("assets/image/glassbg3.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -82,12 +82,12 @@ class _RegisterState extends State<Register> {
               borderRadius: BorderRadius.circular(10.0),
               child: BackdropFilter(
                 filter: ImageFilter.blur(
-                  sigmaX: 6.0,
-                  sigmaY: 6.0,
+                  sigmaX: 5.0,
+                  sigmaY: 5.0,
                 ),
                 child: Container(
-                  height: 500,
-                  width: 400,
+                  height: 400,
+                  width: 350,
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 17, 16, 16).withOpacity(0.3),
                     borderRadius: BorderRadius.circular(15),
@@ -103,50 +103,51 @@ class _RegisterState extends State<Register> {
                         'HEALMATE',
                         style: TextStyle(
                           fontSize: 24,
-                          color: Color.fromARGB(255, 0, 0, 0), // Changed to black
+                          color: Color.fromARGB(255, 255, 255, 255), // Changed to white
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _usernameController,
-                        style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)), // Changed to black
+                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
                         decoration: InputDecoration(
                           labelText: 'Username',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)), // Changed to black
-                          prefixIcon: Icon(Icons.person, color: Colors.black), // Changed to black
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          prefixIcon: Icon(Icons.person, color: Colors.white), // Changed to white
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _emailController,
-                        style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)), // Changed to black
+                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)), // Changed to black
-                          prefixIcon: Icon(Icons.email, color: Colors.black), // Changed to black
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          prefixIcon: Icon(Icons.email, color: Colors.white), // Changed to white
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
-                        style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)), // Changed to black
+                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)), // Changed to black
-                          prefixIcon: Icon(Icons.lock, color: Colors.black), // Changed to black
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          prefixIcon: Icon(Icons.lock, color: Colors.white), // Changed to white
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _confirmPasswordController,
                         obscureText: true,
-                        style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)), // Changed to black
+                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
                         decoration: InputDecoration(
                           labelText: 'Confirm Password',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 0, 0, 0)), // Changed to black
-                          prefixIcon: Icon(Icons.lock_outline, color: Colors.black), // Changed to black
+                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          prefixIcon: Icon(Icons.lock_outline, color: Colors.white), // Changed to white
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -155,7 +156,7 @@ class _RegisterState extends State<Register> {
                         child: const Text(
                           'REGISTER',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0), // Changed to black
+                            color: Color.fromARGB(255, 8, 8, 8), // Changed to white
                           ),
                         ),
                       ),
@@ -165,7 +166,7 @@ class _RegisterState extends State<Register> {
                         children: [
                           const Text(
                             "Already have an account? ",
-                            style: TextStyle(color: Colors.black), // Changed to black
+                            style: TextStyle(color: Colors.white), // Changed to white
                           ),
                           GestureDetector(
                             onTap: () => goToLogin(context),

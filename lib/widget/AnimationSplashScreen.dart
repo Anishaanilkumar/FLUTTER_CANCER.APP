@@ -15,7 +15,7 @@ class _AnimationSplashScreenState extends State<AnimationSplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => Mainpage()),
@@ -37,15 +37,8 @@ class _AnimationSplashScreenState extends State<AnimationSplashScreen> {
               height: 200,
               width: 200,
             ),
-            const SizedBox(height: 200),
-            const Text(
-              'Made With LOVE........❤',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 237, 92, 150),
-              ),
-            ),
+           
+            
           ],
         ),
       ),

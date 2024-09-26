@@ -10,13 +10,15 @@ class ImageSplashScreen extends StatelessWidget {
     return AnimatedSplashScreen(
       splash: Stack(
         children: [
-          Positioned.fill(
+          /*Positioned.fill(
             child: FadeInImage(
               placeholder: AssetImage('assets/image/bg4.jpg'),
               image: AssetImage('assets/image/bg4.jpg'),
               fit: BoxFit.cover,
             ),
-          ),
+          ),*/
+       
+
           Center(
             child: Image.asset(
               'assets/image/cancerapplogo.png',
@@ -24,6 +26,26 @@ class ImageSplashScreen extends StatelessWidget {
               width: 150,
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(35.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end, 
+              children: [
+                Text(
+                  "        “ A Journey of Healing, Guided by Love and Support.”",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13.0,
+                    color: const Color.fromARGB(255, 87, 85, 85),
+                    letterSpacing: 1.2,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
         ],
       ),
       nextScreen: const AnimationSplashScreen(),
