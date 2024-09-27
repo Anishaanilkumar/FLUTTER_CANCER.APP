@@ -81,7 +81,7 @@ class Homescreen extends StatelessWidget {
                     Navigator.of(context).pop();
                   },
                 ),
-                ListTile(
+              /*  ListTile(
                   leading: Icon(Icons.person),
                   title: Text('Personality Test'),
                   onTap: () {
@@ -94,7 +94,7 @@ class Homescreen extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                ),
+                ),*/
                  ListTile(
                   leading: Icon(Icons.article),
                   title: Text('Survival Stories'),
@@ -120,7 +120,7 @@ class Homescreen extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
-                  color: const Color.fromARGB(255, 12, 12, 12),
+                  color: const Color.fromARGB(255, 253, 251, 251),
                 ),
               ),
               SizedBox(height: 20),
@@ -170,7 +170,7 @@ class FullImageScreen extends StatelessWidget {
       body: Center(
         child: Image.asset(
           imagePath,
-          fit: BoxFit.contain, // Use BoxFit.contain to fit the image within the screen
+          fit: BoxFit.contain, 
         ),
       ),
     );

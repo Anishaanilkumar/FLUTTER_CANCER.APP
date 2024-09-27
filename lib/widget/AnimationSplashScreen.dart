@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:project_app/widget/mainpage.dart';
+import 'package:project_app/auth/glassregister.dart';
+
 
 
 class AnimationSplashScreen extends StatefulWidget {
@@ -18,7 +19,7 @@ class _AnimationSplashScreenState extends State<AnimationSplashScreen> {
     Timer(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Mainpage()),
+        MaterialPageRoute(builder: (context) => Register()),
       );
     });
   }
@@ -31,7 +32,7 @@ class _AnimationSplashScreenState extends State<AnimationSplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 200),
+            
             Lottie.asset(
               'assets/lottie/Animation.json',
               height: 200,

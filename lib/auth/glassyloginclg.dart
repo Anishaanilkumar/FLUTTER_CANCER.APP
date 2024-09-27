@@ -2,9 +2,8 @@ import 'dart:developer';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:project_app/auth/auth_service.dart';
-import 'package:project_app/auth/glassregister.dart'; // Ensure this import is correct
-import 'package:project_app/widget/HomeScreen.dart'; // Ensure this import is correct
-
+import 'package:project_app/auth/glassregister.dart'; 
+import 'package:project_app/widget/HomeScreen.dart'; 
 class Glass extends StatefulWidget {
   const Glass({super.key});
 
@@ -33,7 +32,7 @@ class _GlassState extends State<Glass> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/glassbg3.jpg"),
+            image: AssetImage("assets/image/glassbg1.jpg"),
             fit: BoxFit.cover,
           ),
         ),

@@ -1,9 +1,9 @@
 import 'dart:developer';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:project_app/auth/auth_service.dart'; // Make sure this path is correct
-import 'package:project_app/widget/HomeScreen.dart'; // Make sure this path is correct
-import 'package:project_app/auth/glassyloginclg.dart'; // Make sure this path is correct
+import 'package:project_app/auth/auth_service.dart'; 
+import 'package:project_app/widget/HomeScreen.dart'; 
+import 'package:project_app/auth/glassyloginclg.dart'; 
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -13,7 +13,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final AuthService _auth = AuthService(); // Use AuthService instance
+  final AuthService _auth = AuthService(); 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -63,7 +63,7 @@ class _RegisterState extends State<Register> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image/glassbg3.jpg"),
+            image: AssetImage("assets/image/glassbg1.jpg"),
             fit: BoxFit.cover,
           ),
         ),
