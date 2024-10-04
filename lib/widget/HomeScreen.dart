@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:project_app/auth/glassyloginclg.dart';
 import 'package:project_app/widget/chatbot.dart';
+import 'package:project_app/widget/geminiai.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -71,7 +72,7 @@ class Homescreen extends StatelessWidget {
                   leading: Icon(Icons.chat),
                   title: Text('Chatbot'),
                   onTap: () {
-                     Navigator.push(context, MaterialPageRoute(builder:(context)=> Home()));
+                     Navigator.push(context, MaterialPageRoute(builder:(context)=> ChatScreen()));
                   },
                 ),
                 ListTile(
