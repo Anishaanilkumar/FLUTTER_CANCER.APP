@@ -55,8 +55,8 @@ class _GlassState extends State<Glass> {
                   sigmaY: 5.0,
                 ),
                 child: Container(
-                  height: 400,
-                  width: 350,
+                  height: 380,
+                  width: 300,
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 17, 16, 16).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(15),

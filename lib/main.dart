@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:project_app/widget/chatbot.dart';
-//import 'package:dialog_flowtter/dialog_flowtter.dart';
-import 'package:project_app/widget/messages.dart';
+
+import 'package:project_app/widget/geminiai.dart';
+
+
 import 'package:project_app/widget/HomeScreen.dart';
 
 import 'package:project_app/widget/AnimationSplashScreen.dart';

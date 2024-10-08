@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:project_app/auth/glassyloginclg.dart';
-import 'package:project_app/widget/chatbot.dart';
+
 import 'package:project_app/widget/geminiai.dart';
 
 class Homescreen extends StatelessWidget {
@@ -120,7 +120,7 @@ class Homescreen extends StatelessWidget {
                 'WELCOME TO HEALMATE!',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontSize: 20,
                   color: const Color.fromARGB(255, 253, 251, 251),
                 ),
               ),
@@ -165,7 +165,7 @@ class FullImageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Image Preview'),
+        title: Text('CELEBRITY SURVIVALS'),
         backgroundColor: Color.fromARGB(255, 54, 52, 52).withOpacity(0.7),
       ),
       body: Center(

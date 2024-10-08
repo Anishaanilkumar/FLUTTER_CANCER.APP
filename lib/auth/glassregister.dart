@@ -87,7 +87,7 @@ class _RegisterState extends State<Register> {
                 ),
                 child: Container(
                   height: 400,
-                  width: 350,
+                  width: 300,
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 17, 16, 16).withOpacity(0.3),
                     borderRadius: BorderRadius.circular(15),
@@ -108,7 +108,7 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                       
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       TextFormField(
                         controller: _usernameController,
                         style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
@@ -118,7 +118,7 @@ class _RegisterState extends State<Register> {
                           prefixIcon: Icon(Icons.person, color: Colors.white), // Changed to white
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       TextFormField(
                         controller: _emailController,
                         style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
@@ -128,7 +128,7 @@ class _RegisterState extends State<Register> {
                           prefixIcon: Icon(Icons.email, color: Colors.white), // Changed to white
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       TextFormField(
                         controller: _passwordController,
                         obscureText: true,
@@ -139,7 +139,7 @@ class _RegisterState extends State<Register> {
                           prefixIcon: Icon(Icons.lock, color: Colors.white), // Changed to white
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       TextFormField(
                         controller: _confirmPasswordController,
                         obscureText: true,

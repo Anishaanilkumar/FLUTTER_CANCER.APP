@@ -29,7 +29,7 @@ class Messages extends StatelessWidget {
         right: isUser ? 10 : 100,
       ),
       decoration: BoxDecoration(
-        color: isUser ? Colors.blueAccent : Colors.grey.shade400,
+        color: isUser ? const Color.fromARGB(255, 3, 29, 88) : Colors.grey.shade400,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10),
           bottomLeft: isUser ? Radius.circular(10) : Radius.zero,

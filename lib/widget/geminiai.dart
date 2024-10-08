@@ -14,10 +14,12 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   TextEditingController _userInput = TextEditingController();
+  ScrollController _scrollController = ScrollController(); // ScrollController
   static const apiKey = "AIzaSyCQAJGXHHuU3G7l7YLB1vgpOaY_nUe-ga8";
   final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
   final List<Message> _messages = [];
 
+  // Send message and handle AI response with a focus on cancer counseling
   Future<void> sendMessage() async {
     final message = _userInput.text.trim();
     if (message.isEmpty) {
@@ -28,90 +30,138 @@ class _ChatScreenState extends State<ChatScreen> {
     debugPrint("Sending message: $message");
     setState(() {
       _messages.add(Message(isUser: true, message: message, date: DateTime.now()));
-      _userInput.clear(); 
+      _userInput.clear();
     });
 
-    final content = [Content.text(message)];
+    // Scroll to the bottom after user message is added
+    _scrollToBottom();
+
+    // Modify the content to include a compassionate response instruction
+    //final content = [Content.text(message)];
+    final content = [
+    Content.text(
+      "Imagine you're a counselor providing support to a cancer patient. "
+      "Respond in 20 words or less, ensuring your response is compassionate and supportive to the following message: \"$message\"."
+    )
+  ];
+
     try {
       final response = await model.generateContent(content);
+
+      // Display AI's counseling-focused response
       debugPrint("Response from AI: ${response.text}");
       setState(() {
-        _messages.add(Message(isUser: false, message: response.text ?? "Error: No response", date: DateTime.now()));
+        _messages.add(Message(
+          isUser: false,
+          message: response.text ?? "Error: No response",
+          date: DateTime.now(),
+        ));
       });
+
+      // Scroll to the bottom after AI response is added
+      _scrollToBottom();
     } catch (e) {
       debugPrint("Error while fetching response: $e");
       setState(() {
-        _messages.add(Message(isUser: false, message: "Error: $e", date: DateTime.now()));
+        _messages.add(Message(
+          isUser: false,
+          message: "Error: $e",
+          date: DateTime.now(),
+        ));
       });
+
+      // Scroll to the bottom after error message is added
+      _scrollToBottom();
     }
+  }
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  body: Container(
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.8), BlendMode.dstATop),
-        image: NetworkImage('https://images.unsplash.com/photo-1650954316166-c3361fefcc87?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D'),
-        fit: BoxFit.cover,
-      ),
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Expanded(
-          child: ListView.builder(
-            itemCount: _messages.length,
-            itemBuilder: (context, index) {
-              final message = _messages[index];
-              debugPrint("Displaying message at index $index: ${message.message}");
-              return Messages(
-                isUser: message.isUser,
-                message: message.message,
-                date: DateFormat('HH:mm').format(message.date),
-              );
-            },
+      appBar: AppBar(
+        title: Text(
+          'BOT_SAM',
+          style: TextStyle(
+            color: Color.fromRGBO(8, 8, 8, 0.965),
+            fontWeight: FontWeight.bold,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 15,
-                child: TextFormField(
-                  style: TextStyle(color: Colors.white),
-                  controller: _userInput,
-                  decoration: InputDecoration(
-                    fillColor: Colors.black54,
-                    filled: true,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
+        leading: Icon(
+          Icons.person_4,
+          color: Color.fromRGBO(8, 8, 8, 0.965),
+        ),
+        backgroundColor: Color.fromRGBO(2, 105, 77, 0.965),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Expanded(
+            child: ListView.builder(
+              controller: _scrollController, // Attach ScrollController to ListView
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+                final message = _messages[index];
+                debugPrint("Displaying message at index $index: ${message.message}");
+                return Messages(
+                  isUser: message.isUser,
+                  message: message.message,
+                  date: DateFormat('HH:mm').format(message.date),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 25,
+                  child: TextFormField(
+                    style: TextStyle(
+                      color: const Color.fromARGB(255, 11, 11, 11),
+                      fontWeight: FontWeight.w600,
                     ),
-                    label: Text(
-                      'Enter Your Message',
-                      style: TextStyle(color: Colors.white),
+                    controller: _userInput,
+                    decoration: InputDecoration(
+                      fillColor: const Color.fromARGB(255, 158, 204, 251),
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      hintText: 'Enter Your Message',
+                      hintStyle: TextStyle(
+                        color: const Color.fromARGB(255, 10, 10, 10),
+                        fontWeight: FontWeight.w300,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Spacer(),
-              IconButton(
-                padding: EdgeInsets.all(12),
-                iconSize: 30,
-                onPressed: () {
-                  sendMessage();
-                },
-                icon: Icon(Icons.send, color: Colors.white),
-              ),
-            ],
+                Spacer(),
+                IconButton(
+                  padding: EdgeInsets.all(12),
+                  iconSize: 30,
+                  onPressed: () {
+                    sendMessage();
+                  },
+                  icon: Icon(Icons.send, color: const Color.fromARGB(255, 9, 9, 9)),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
-  ),
-);
-
+        ],
+      ),
+    );
   }
 }
