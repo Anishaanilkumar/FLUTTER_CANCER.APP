@@ -2,8 +2,9 @@ import 'dart:developer';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:project_app/auth/auth_service.dart';
-import 'package:project_app/auth/glassregister.dart'; 
-import 'package:project_app/widget/HomeScreen.dart'; 
+import 'package:project_app/auth/glassregister.dart';
+import 'package:project_app/widget/HomeScreen.dart';
+
 class Glass extends StatefulWidget {
   const Glass({super.key});
 
@@ -15,8 +16,8 @@ class _GlassState extends State<Glass> {
   final AuthService _auth = AuthService();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  
-  
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Added form key for validation
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -27,8 +28,6 @@ class _GlassState extends State<Glass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -65,67 +64,92 @@ class _GlassState extends State<Glass> {
                       color: const Color.fromARGB(255, 15, 15, 15).withOpacity(0.3),
                     ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                     
-                      const SizedBox(height: 20),
-                      const Text("Welcome Back ..",
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Color.fromARGB(255, 254, 254, 255),
-                          
-                        ),),
-                      const SizedBox(height: 20),
-                      TextFormField(
-                        controller: _emailController,
-                        style: const TextStyle(color: Color.fromARGB(255, 249, 248, 248)),
-                        decoration: const InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: TextStyle(color: Color.fromARGB(255, 251, 250, 250)),
-                         
-                              prefixIcon: Icon(Icons.email, color: Color.fromARGB(255, 247, 246, 246)),  
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      TextFormField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        style: const TextStyle(color: Color.fromARGB(255, 252, 250, 250)),
-                        decoration: const InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: Color.fromARGB(255, 250, 248, 248)),
-                         
-                           prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 252, 252, 252)),
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      ElevatedButton(
-                        child: const Text(
-                          'Login',
+                  child: Form( // Wrapped inside a form for validation
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        const Text(
+                          "Welcome Back ..",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 9, 9, 9),
-                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            color: Color.fromARGB(255, 254, 254, 255),
                           ),
                         ),
-                        onPressed: _login,
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                           Text("If don't have an account? ",style: TextStyle(color: const Color.fromARGB(255, 253, 252, 252)),),
-                          GestureDetector(
-                            onTap: () => goToSignup(context),
-                            child: const Text(
-                              "Signup",
-                              style: TextStyle(color: Colors.red),
+                        const SizedBox(height: 20),
+                       TextFormField(
+  controller: _emailController,
+  style: const TextStyle(color: Color.fromARGB(255, 249, 248, 248)),
+  decoration: const InputDecoration(
+    labelText: 'Email',
+    labelStyle: TextStyle(color: Color.fromARGB(255, 251, 250, 250)),
+    prefixIcon: Icon(Icons.email, color: Color.fromARGB(255, 247, 246, 246)),
+    // Error text style is now white
+    errorStyle: TextStyle(color: Colors.white), 
+  ),
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+      return 'Please enter a valid email address';
+    }
+    return null;
+  },
+),
+const SizedBox(height: 30),
+TextFormField(
+  controller: _passwordController,
+  obscureText: true,
+  style: const TextStyle(color: Color.fromARGB(255, 252, 250, 250)),
+  decoration: const InputDecoration(
+    labelText: 'Password',
+    labelStyle: TextStyle(color: Color.fromARGB(255, 250, 248, 248)),
+    prefixIcon: Icon(Icons.lock, color: Color.fromARGB(255, 252, 252, 252)),
+    
+    errorStyle: TextStyle(color: Colors.white), 
+  ),
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    } else if (value.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+    return null;
+  },
+),
+
+                        const SizedBox(height: 30),
+                        ElevatedButton(
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 9, 9, 9),
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
-                      const Spacer(),
-                    ],
+                          onPressed: _login,
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Don't have an account? ",
+                              style: TextStyle(color: const Color.fromARGB(255, 253, 252, 252)),
+                            ),
+                            GestureDetector(
+                              onTap: () => goToSignup(context),
+                              child: const Text(
+                                "Signup",
+                                style: TextStyle(color: Colors.red),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -137,29 +161,31 @@ class _GlassState extends State<Glass> {
   }
 
   void goToSignup(BuildContext context) => Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => Register()),
-  );
+        context,
+        MaterialPageRoute(builder: (context) => Register()),
+      );
 
   void goToHome(BuildContext context) => Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(builder: (context) => const Homescreen()),
-  );
+        context,
+        MaterialPageRoute(builder: (context) => const Homescreen()),
+      );
 
   Future<void> _login() async {
-    final user = await _auth.loginUserWithEmailAndPassword(
-      _emailController.text, 
-      _passwordController.text,
-    );
-
-    if (user != null) {
-      log("User Logged In");
-      goToHome(context);
-    } else {
-      log("Login Failed");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login Failed')),
-      );
+    if (_formKey.currentState!.validate()) {
+      final email = _emailController.text.trim();
+      final password = _passwordController.text.trim();
+      try {
+        final user = await _auth.loginUserWithEmailAndPassword(email, password);
+        if (user != null) {
+          log("User Logged In");
+          goToHome(context);
+        }
+      } catch (e) {
+        log("Login Failed: $e");
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Login failed Incorrect Password or Email.')),
+        );
+      }
     }
   }
 }

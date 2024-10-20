@@ -19,6 +19,8 @@ class _RegisterState extends State<Register> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>(); // Added form key
+
   @override
   void dispose() {
     _usernameController.dispose();
@@ -29,21 +31,14 @@ class _RegisterState extends State<Register> {
   }
 
   Future<void> _signup() async {
-    final email = _emailController.text;
-    final password = _passwordController.text;
-    final confirmPassword = _confirmPasswordController.text;
-
-    if (password != confirmPassword) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Passwords do not match')),
-      );
-      return;
-    }
-
-    final user = await _auth.createUserWithEmailAndPassword(email, password);
-    if (user != null) {
-      log("User Created Successfully");
-      goToHome(context);
+    if (_formKey.currentState!.validate()) {
+      final email = _emailController.text;
+      final password = _passwordController.text;
+      final user = await _auth.createUserWithEmailAndPassword(email, password);
+      if (user != null) {
+        log("User Created Successfully");
+        goToHome(context);
+      }
     }
   }
 
@@ -86,7 +81,7 @@ class _RegisterState extends State<Register> {
                   sigmaY: 5.0,
                 ),
                 child: Container(
-                  height: 400,
+                  height: 450,
                   width: 300,
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 17, 16, 16).withOpacity(0.3),
@@ -96,89 +91,119 @@ class _RegisterState extends State<Register> {
                       color: const Color.fromARGB(255, 15, 15, 15).withOpacity(0.1),
                     ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'HEALMATE',
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Color.fromARGB(255, 255, 255, 255), // Changed to white
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      
-                      const SizedBox(height: 10),
-                      TextFormField(
-                        controller: _usernameController,
-                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                        decoration: InputDecoration(
-                          labelText: 'Username',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                          prefixIcon: Icon(Icons.person, color: Colors.white), // Changed to white
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      TextFormField(
-                        controller: _emailController,
-                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                          prefixIcon: Icon(Icons.email, color: Colors.white), // Changed to white
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      TextFormField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                        decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                          prefixIcon: Icon(Icons.lock, color: Colors.white), // Changed to white
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      TextFormField(
-                        controller: _confirmPasswordController,
-                        obscureText: true,
-                        style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                        decoration: InputDecoration(
-                          labelText: 'Confirm Password',
-                          labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
-                          prefixIcon: Icon(Icons.lock_outline, color: Colors.white), // Changed to white
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: _signup,
-                        child: const Text(
-                          'REGISTER',
+                  child: Form(
+                    key: _formKey, // Wrap fields inside Form widget
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'HEALMATE',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 8, 8, 8), // Changed to white
+                            fontSize: 24,
+                            color: Color.fromARGB(255, 255, 255, 255), // Changed to white
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Already have an account? ",
-                            style: TextStyle(color: Colors.white), // Changed to white
+                        
+                        const SizedBox(height: 10),
+                        TextFormField(
+                          controller: _usernameController,
+                          style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          decoration: InputDecoration(
+                            labelText: 'Username',
+                            labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                            prefixIcon: Icon(Icons.person, color: Colors.white), // Changed to white
                           ),
-                          GestureDetector(
-                            onTap: () => goToLogin(context),
-                            child: const Text(
-                              "Login",
-                              style: TextStyle(color: Colors.red),
+                        ),
+                        const SizedBox(height: 10),
+                        TextFormField(
+                          controller: _emailController,
+                          style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                            prefixIcon: Icon(Icons.email, color: Colors.white), // Changed to white
+                            errorStyle: const TextStyle(color: Colors.white), // White error message
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                              return 'Please enter a valid email address';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 10),
+                        TextFormField(
+                          controller: _passwordController,
+                          obscureText: true,
+                          style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          decoration: InputDecoration(
+                            labelText: 'Password',
+                            labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                            prefixIcon: Icon(Icons.lock, color: Colors.white), // Changed to white
+                            errorStyle: const TextStyle(color: Colors.white), // White error message
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your password';
+                            } else if (value.length < 8) {
+                              return 'Password must be at least 8 characters long';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 10),
+                        TextFormField(
+                          controller: _confirmPasswordController,
+                          obscureText: true,
+                          style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                          decoration: InputDecoration(
+                            labelText: 'Confirm Password',
+                            labelStyle: TextStyle(color: const Color.fromARGB(255, 255, 255, 255)), // Changed to white
+                            prefixIcon: Icon(Icons.lock_outline, color: Colors.white), // Changed to white
+                            errorStyle: const TextStyle(color: Colors.white), // White error message
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please confirm your password';
+                            } else if (value != _passwordController.text) {
+                              return 'Passwords do not match';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: _signup,
+                          child: const Text(
+                            'REGISTER',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 8, 8, 8), // Changed to white
                             ),
                           ),
-                        ],
-                      ),
-                      const Spacer(),
-                    ],
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Already have an account? ",
+                              style: TextStyle(color: Colors.white), // Changed to white
+                            ),
+                            GestureDetector(
+                              onTap: () => goToLogin(context),
+                              child: const Text(
+                                "Login",
+                                style: TextStyle(color: Colors.red),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                      ],
+                    ),
                   ),
                 ),
               ),
