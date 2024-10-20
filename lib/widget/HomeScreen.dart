@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:project_app/auth/glassyloginclg.dart';
 
 import 'package:project_app/widget/geminiai.dart';
+import 'package:project_app/widget/meditation.dart';
+import 'package:project_app/widget/survival%20list.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -79,7 +81,7 @@ class Homescreen extends StatelessWidget {
                   leading: Icon(Icons.self_improvement),
                   title: Text('Meditation Module'),
                   onTap: () {
-                    Navigator.of(context).pop();
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> MymediPage()));
                   },
                 ),
               /*  ListTile(
@@ -100,7 +102,7 @@ class Homescreen extends StatelessWidget {
                   leading: Icon(Icons.article),
                   title: Text('Survival Stories'),
                   onTap: () {
-                    Navigator.of(context).pop();
+                 Navigator.push(context, MaterialPageRoute(builder:(context)=> SurvivorListScreen()));
                   },
                 ),
                 ListTile(
