@@ -183,8 +183,15 @@ TextFormField(
       } catch (e) {
         log("Login Failed: $e");
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Login failed Incorrect Password or Email.')),
-        );
+  SnackBar(
+    content: Text(
+      'Login failed',
+      style: TextStyle(color: Colors.white),  // Set text color
+    ),
+    backgroundColor: Colors.red,  // Set background color
+  ),
+);
+
       }
     }
   }
