@@ -1,6 +1,6 @@
-# project_app
+# MINIPROJECT
 
-A new Flutter project.
+CANCER COUNSEILING APP USING FLUTTER .
 
 ## Getting Started
 
